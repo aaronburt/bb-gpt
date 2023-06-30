@@ -1,0 +1,47 @@
+plugins {
+    id 'java-library'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+ext {
+    mainDevClass = 'com.example.exampleplugin.DevMain'
+}
+
+group 'com.example'
+
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+project.configurations.api.canBeResolved(true)
+
+dependencies {
+    implementation 'com.github.bendavies99:BabbleBot-Server:v3.0.0-rc.18'
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:3.1.0"
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    implementation 'org.slf4j:slf4j-api:2.0.7'
+}
+
+shadowJar {
+    archivesBaseName = 'testplugin'
+    exclude("${project.mainDevClass.replace('.', '/')}*")
+    configurations = [project.configurations.api]
+    archiveAppendix = ''
+}
+
+jar {
+    exclude("${project.mainDevClass.replace('.', '/')}*")
+}
+
+
+task runBabblebot(type: JavaExec) {
+    dependsOn build
+    main = project.mainDevClass
+    classpath = sourceSets.main.runtimeClasspath
+    group 'babblebot'
+}
