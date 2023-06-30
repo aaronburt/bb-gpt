@@ -1,4 +1,4 @@
-package uk.co.aaronburt;
+package uk.co.aaronburt.gpt;
 
 import lombok.extern.slf4j.Slf4j;
 import net.bdavies.babblebot.BabblebotApplication;
@@ -27,8 +27,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @Import(BabblebotApplication.class)
 @EnableAutoConfiguration
-@EnableJpaRepositories(basePackages = {"net.bdavies.babblebot", "uk.co.aaronburt"})
-@EntityScan(basePackages = {"net.bdavies.babblebot", "uk.co.aaronburt"})
+@EnableJpaRepositories(basePackages = {"net.bdavies.babblebot", "uk.co.aaronburt.gpt"})
+@EntityScan(basePackages = {"net.bdavies.babblebot", "uk.co.aaronburt.gpt"})
 public class DevMain {
     public static void main(String[] args) {
         IApplication app = BabblebotApplication.make(DevMain.class, args);

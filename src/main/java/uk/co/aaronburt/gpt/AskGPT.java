@@ -1,4 +1,4 @@
-package uk.co.aaronburt;
+package uk.co.aaronburt.gpt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.theokanning.openai.client.OpenAiApi;
@@ -9,7 +9,7 @@ import com.theokanning.openai.service.OpenAiService;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 
-import uk.co.aaronburt.model.TestRepository;
+import uk.co.aaronburt.gpt.model.TestRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.bdavies.babblebot.api.command.Command;

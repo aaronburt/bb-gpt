@@ -7,10 +7,10 @@ sourceCompatibility = '17'
 targetCompatibility = '17'
 
 ext {
-    mainDevClass = 'uk.co.aaronburt.DevMain'
+    mainDevClass = 'uk.co.aaronburt.gpt.DevMain'
 }
 
-group 'uk.co.aaronburt'
+group 'uk.co.aaronburt.gpt'
 
 
 repositories {
